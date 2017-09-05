@@ -1,0 +1,8 @@
+{
+  "name": "StartApp-template",
+  "version": "1.0.0",
+  "main": "index.html",
+  "nativeScroll": "false",
+  "src-folder": "./build/",
+  "output-folder": "./dist-zip/"
+}

@@ -2,10 +2,23 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cleanCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
+var rimraf   = require('rimraf');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+  lib: ['./www/lib', './www/**']
 };
+
+gulp.task('clean', function(cb) {
+  rimraf('./build', cb);
+});
+
+// Copies everything in the client folder except templates, Sass, and JS
+gulp.task('copy', function() {
+  return gulp.src(paths.lib)
+    .pipe(gulp.dest('./build'))
+  ;
+})
 
 gulp.task('default', ['sass']);
 
